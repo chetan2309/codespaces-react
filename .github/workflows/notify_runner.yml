@@ -1,0 +1,20 @@
+name: Notify Intelligent Test Runner
+
+on:
+  pull_request:
+    types: [opened, synchronize] # Triggers on PR creation and updates
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send PR data to Intelligent Runner Service
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+          -H "X-Secret-Token: ${{ secrets.RUNNER_SECRET_TOKEN }}" \
+          -d '{
+            "repo": "${{ github.repository }}",
+            "pr_number": ${{ github.event.number }},
+            "github_token": "${{ secrets.GH_PAT_FOR_RUNNER }}"
+          }' \
+          ${{ secrets.RUNNER_SERVICE_URL }}
