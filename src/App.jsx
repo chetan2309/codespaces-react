@@ -36,7 +36,7 @@ export default function App() {
     if (user) { // Only allow navigation if logged in
       setCurrentPage(page);
     } else {
-      alert("Please log in to access other pages.");
+      alert("Please log in to access the other pages of the app.");
     }
   };
 
