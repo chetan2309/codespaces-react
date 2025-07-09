@@ -17,4 +17,4 @@ jobs:
             "pr_number": ${{ github.event.number }},
             "github_token": "${{ secrets.GH_PAT_FOR_RUNNER }}"
           }' \
-          "https://stunning-space-rotary-phone-74xjw9pp72x45q-5000.app.github.dev/"
+          "https://stunning-space-rotary-phone-74xjw9pp72x45q-5000.app.github.dev/analyze"
