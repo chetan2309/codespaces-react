@@ -21,9 +21,11 @@ export default function App() {
 
   // --- Handlers ---
   const handleLogin = (username) => {
-    console.log(`${username} logged in successfully.`);
     setUser(mockUser);
-    setCurrentPage('profile'); // Navigate to profile after login
+    if (user) {
+      console.log(`${username} logged in successfully.`);
+      setCurrentPage('profile'); // Navigate to profile after login
+    }
   };
 
   const handleLogout = () => {
